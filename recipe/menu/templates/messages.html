@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" class='post-form' action="">  
+    {% csrf_token%}
+<div class='container'>
+   {% if message_form.errors %}
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Error!</strong> {{message_form.errors}}
+        </div>
+    {% endif %} 
+
+    <div class="container">
+        <h2>{{recipe.name}}</h2>
+        <p><img  src="{{recipe.picture_url}}"  style="height: 50%; width: 50%; display: block; margin:auto " align="text-center"> </p>            
+        <table class="table table-borderless">
+        
+
+
+
+
+  
+  <!---- <p><h1>{{recipe.name}}</h1>
+    <img  src="{{recipe.picture_url}}"  style="height: 50%; width: 50%; display: block; margin:auto " align="text-center"> 
+
+</p>
+       
+      
+      
+      
+
+   <table clss="center">-->
+   {{ message_form.as_table}}
+   </table>
+        
+        <button type="submit" class="btn btn-primary btn-block">ADD          REVIEW</button>
+    </form>
+</div>
+ </div>      
+        
+{% endblock %}

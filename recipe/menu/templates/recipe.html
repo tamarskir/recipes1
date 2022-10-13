@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+  
+{% block content %}
+<div block="container" >
+
+                            
+  <div class="text-center"> 
+
+  <div class="justify-content-md-center">
+              
+             <div class="card "> 
+                <div class="card-body"> 
+                  <img  src="{{recipe.picture_url}}"  style="height: 50%; width: 35%; display: block; margin:auto " align="left"> 
+                    <h1 class="card-text">{{recipe.name}}</h1>
+                  
+                     
+                 
+                    <table  class="table table-striped" style="width: 500px; margin: auto;">
+                        <tr>
+                          <th>ingridient</th>
+                          <th>amount</th>     
+                      <thead>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{recipe.ingridient1}}</td>
+                          <td>{{recipe.col1}}</td>
+                        </tbody>
+                          <thead>
+                              <th></th>
+                              <th></th>       
+                          </thead>
+                          <tbody>
+                            <tr>
+                          <td>{{recipe.ingridient2}}</td>
+                          <td>{{recipe.col2}}</td>
+                          {%if recipe.ingridient3%}
+                          <thead>
+                          
+                              <th></th>
+                              <th></th>       
+                          </thead>
+                          <tbody>
+                            <tr>
+                          <td>{{recipe.ingridient3}}</td>
+                          <td>{{recipe.col3}}</td>
+                          {%endif%}
+  
+                          {%if recipe.ingridient4%}
+                          <thead>
+                              <th></th>
+                              <th></th>       
+                          </thead>
+                          <tbody>
+                            <tr>
+                          <td>{{recipe.ingridient4}}</td>
+                          <td>{{recipe.col4}}</td>
+                          {%endif%}
+                          
+                          {%if recipe.ingridient5%}
+                          <thead>
+                              <th></th>
+                              <th></th>       
+                          </thead>
+                          <tbody>
+                            <tr>
+                          <td>{{recipe.ingridient5}}</td>
+                          <td>{{recipe.col4}}</td>
+                          {%endif%}
+
+                          {%if recipe.ingridient6%}
+                          <thead>
+                              <th></th>
+                              <th></th>       
+                          </thead>
+                          <tbody>
+                            <tr>
+                          <td>{{recipe.ingridient6}}</td>
+                          <td>{{recipe.col4}}</td>
+                          {%endif%}
+                          {%if recipe.ingridient7%}
+                          <thead>
+                              <th></th>
+                              <th></th>       
+                          </thead>
+                          <tbody>
+                            <tr>
+                          <td>{{recipe.ingridient7}}</td>
+                          <td>{{recipe.col4}}</td>
+                          {%endif%}        
+                        </tr>
+                      </tbody>  
+                <div class="container">
+    <div class="row">
+      
+    <div class="col-md-4">                                                                                                        
+                  </tbody>   
+                  </table>         
+                  </div>   
+                    <div class="jumbotron"  style="width: 1500px;  ">
+                      <h1>Decription</h1>      
+                      <p>{{recipe.description}}</p>
+                    </div>    
+                  </div>
+                <div class="container">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    REVIEWS
+                  </button>
+                  <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>
+                        <div class="modal-body">
+                          {%for mes in recipe_mes%}     
+                          <p align="left">{{mes.date}} <span align="right">{{mes.name}}</span></p>
+                          
+                          <p>{{mes.messages}}</p>
+                          {%endfor%}
+                        </div>
+                       
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                        <!---- <a href="{% url 'messages' id=recipe.id  %}" role="button" class="btn font-weight-light text-muted"><button type="submit" class="btn btn-primary"></button>add review</a> -->
+                        <button type="submit" class="btn"><a href="{% url 'messages' id=recipe.id  %}" role="button" class="btn btn-outline-dark">add review</a></button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>                         
+                </div>   
+       
+                    
+                    
+ </div>       
+                    
+                  
+              
+                     
+                  
+                </div>
+  </div> 
+
+  {% endblock %}

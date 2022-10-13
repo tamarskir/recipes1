@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="album py-5 bg-light">
+          
+  <div class="container">
+    <div class="row">
+      {% for cat in  categor1%}
+    <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" src="{{cat.picture_url}}"  style="height: 350px; width: 100%; display: block; margin: auto"> 
+                    <div class="card-body">
+                      <p class="card-text">{{cat.name}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <form method="get">
+                            <a href="{{cat.get_absolute_url}}" class="btn btn-sm btn-outline-secondary" role="button">View</a>
+                          </form>
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+          </div>
+          {% endfor %}  
+    </div>
+    </div>
+  </div>
+
+
+{% endblock %}
